@@ -1,6 +1,6 @@
 project:
   type: website
-output-dir: docs
+  output-dir: docs
 website:
   title: "QTM 350"
   page-navigation: true
@@ -9,17 +9,17 @@ website:
   repo-url: https://github.com/emoryPW/qtm350-quiz02
   repo-actions: [issue, source]
   repo-branch: gh-pages
-navbar:
-  title: "Gapminder Analysis"
-  left:
-    - text: "Home"
-      href: index.qmd
-    - text: "Life Expectancy and GDP"
-      href: life-gdp.qmd
-    - text: "Life Expectancy and Population"
-      href: life-population.qmd
-    - text: "Country Analysis"
-      href: country.qmd
+  navbar:
+    title: "Gapminder Analysis"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Life Expectancy and GDP"
+        href: life-gdp.qmd
+      - text: "Life Expectancy and Population"
+        href: life-population.qmd
+      - text: "Country Analysis"
+        href: country.qmd
 
 format: 
   html:
