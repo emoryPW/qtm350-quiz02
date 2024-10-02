@@ -1,24 +1,17 @@
 [
   {
-    "objectID": "life-population.html",
-    "href": "life-population.html",
-    "title": "Life Expectancy & Population",
+    "objectID": "create-dataset.html",
+    "href": "create-dataset.html",
+    "title": "Create the Gapminder dataset",
     "section": "",
-    "text": "This page shows the relationship between life expectancy and population over time.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ngapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')\nfor country in gapminder['country'].unique():\n    data = gapminder[gapminder['country'] == country]\n    plt.plot(data['year'], data['population_millions'], label=country, alpha=0.3)\n\nplt.title('Life Expectancy vs Population')\nplt.xlabel('Year')\nplt.ylabel('Populationb (Millions)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "# Import necessary libraries\nimport pandas as pd\nfrom gapminder import gapminder\n\n# Rename 'lifeExp' to 'life_expectancy' and 'gdpPercap' to 'gdp_per_capita'\ngapminder = gapminder.rename(columns={'lifeExp': 'life_expectancy',\n                                      'pop': 'population_millions', \n                                      'gdpPercap': 'gdp_per_capita'})\n\n# Convert population to millions\ngapminder['population_millions'] = gapminder['population_millions'] / 1_000_000\n\n# Create a new pandas DataFrame from the modified gapminder data\ngapminder_df = pd.DataFrame(gapminder)\n\n# Save the DataFrame as a CSV file\ngapminder_df.to_csv('gapminder.csv', index=False)\n\n# Print the first 3 rows of the DataFrame\nprint(gapminder_df.head(3))\n\n       country continent  year  life_expectancy  population_millions  \\\n0  Afghanistan      Asia  1952           28.801             8.425333   \n1  Afghanistan      Asia  1957           30.332             9.240934   \n2  Afghanistan      Asia  1962           31.997            10.267083   \n\n   gdp_per_capita  \n0      779.445314  \n1      820.853030  \n2      853.100710  \n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quiz02",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Gapminder Analysis\nThis website presents an analysis of the Gapminder dataset, focusing on life expectancy, GDP per capita, and population across various countries and years.\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "country.html",
-    "href": "country.html",
-    "title": "Country Analysis",
-    "section": "",
-    "text": "This page presents a detailed analysis of life expectancy, GDP per capita, and population for a specific country (USA).\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ngapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')\ncountry = 'United States'\ndata = gapminder[gapminder['country'] == country]\nplt.plot(data['year'], data['life_expectancy'], label='Life Expectancy')\nplt.plot(data['year'], data['gdp_per_capita'], label='GDP per Capita')\nplt.plot(data['year'], data['population_millions'], label='Population (in millions)')\nplt.title(f'Life Expectancy, GDP per Capita, and Population in {country}')\nplt.xlabel('Year')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "About this site\n\n\n\n Back to top"
   },
   {
     "objectID": "life-gdp.html",
@@ -28,10 +21,24 @@
     "text": "This page shows the relationship between life expectancy and GDP per capita over time.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ngapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')\nfor country in gapminder['country'].unique():\n    data = gapminder[gapminder['country'] == country]\n    plt.plot(data['year'], data['gdp_per_capita'], label=country, alpha=0.3)\n\nplt.title('Life Expectancy vs GDP')\nplt.xlabel('Year')\nplt.ylabel('GDP')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "country.html",
+    "href": "country.html",
+    "title": "Country Analysis",
     "section": "",
-    "text": "About this site\n\n\n\n Back to top"
+    "text": "This page presents a detailed analysis of life expectancy, GDP per capita, and population for a specific country (USA).\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ngapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')\ncountry = 'United States'\ndata = gapminder[gapminder['country'] == country]\nplt.plot(data['year'], data['life_expectancy'], label='Life Expectancy')\nplt.plot(data['year'], data['gdp_per_capita'], label='GDP per Capita')\nplt.plot(data['year'], data['population_millions'], label='Population (in millions)')\nplt.title(f'Life Expectancy, GDP per Capita, and Population in {country}')\nplt.xlabel('Year')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quiz02",
+    "section": "",
+    "text": "Gapminder Analysis\nThis website presents an analysis of the Gapminder dataset, focusing on life expectancy, GDP per capita, and population across various countries and years.\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "life-population.html",
+    "href": "life-population.html",
+    "title": "Life Expectancy & Population",
+    "section": "",
+    "text": "This page shows the relationship between life expectancy and population over time.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ngapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')\nfor country in gapminder['country'].unique():\n    data = gapminder[gapminder['country'] == country]\n    plt.plot(data['year'], data['population_millions'], label=country, alpha=0.3)\n\nplt.title('Life Expectancy vs Population')\nplt.xlabel('Year')\nplt.ylabel('Populationb (Millions)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   }
 ]
