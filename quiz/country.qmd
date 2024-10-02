@@ -1,0 +1,25 @@
+---
+title: "Country Analysis"
+format: html
+editor: visual
+---
+
+This page presents a detailed analysis of life expectancy, GDP per capita, and population for a specific country (USA).
+
+```{python}
+#| echo: true
+#| eval: true
+import pandas as pd
+import matplotlib.pyplot as plt
+
+gapminder = pd.read_csv('/Users/xipuwang/qtm350-quiz02/gapminder.csv')
+country = 'United States'
+data = gapminder[gapminder['country'] == country]
+plt.plot(data['year'], data['life_expectancy'], label='Life Expectancy')
+plt.plot(data['year'], data['gdp_per_capita'], label='GDP per Capita')
+plt.plot(data['year'], data['population_millions'], label='Population (in millions)')
+plt.title(f'Life Expectancy, GDP per Capita, and Population in {country}')
+plt.xlabel('Year')
+plt.legend()
+plt.show()
+```
